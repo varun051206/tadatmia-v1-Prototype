@@ -1,0 +1,61 @@
+/**
+ * Tadatmia V1 — SRM MCET Madurai
+ * Design Tokens: Strict 7-Shade Palette & Typography
+ * Primary: White | Secondary: Dark Ink Blue, Golden Yellow
+ */
+
+:root {
+  /* ==========================================================================
+     STRICT 7-SHADE PALETTE
+     Derived strictly from White, Dark Ink Blue, and Golden Yellow.
+     Zero unrelated colors (no reds, greens, purples, etc.)
+     ========================================================================== */
+  --c-1-white: #FFFFFF;              /* 1. Pure White: Base background & card canvas */
+  --c-2-ink-tint: #F7F9FC;          /* 2. Soft Ink Mist: Canvas tint, dropzone, table header */
+  --c-3-border: #E1E6EE;            /* 3. Hairline Ink Border: Subtle dividers & containers */
+  --c-4-ink-muted: #56657B;         /* 4. Muted Ink Blue: Secondary text, hints, captions */
+  --c-5-ink-dark: #0B1528;          /* 5. Deep Dark Ink Blue: Headings, primary text, buttons */
+  --c-6-gold-accent: #C89B2B;       /* 6. Golden Yellow: Subtle active states, accent badge */
+  --c-7-gold-tint: #FCF8ED;         /* 7. Soft Gold Glow: Selected backgrounds, subtle highlights */
+
+  /* Semantic Aliases mapped to the 7 shades */
+  --bg-body: var(--c-2-ink-tint);
+  --bg-surface: var(--c-1-white);
+  --bg-surface-subtle: var(--c-2-ink-tint);
+  --border-color: var(--c-3-border);
+  --text-primary: var(--c-5-ink-dark);
+  --text-secondary: var(--c-4-ink-muted);
+  --text-inverse: var(--c-1-white);
+  --accent-gold: var(--c-6-gold-accent);
+  --accent-gold-bg: var(--c-7-gold-tint);
+
+  /* Typography: Apple System Font Stack */
+  --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+
+  /* Spacing Scale */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Border Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Elevation (Subtle, Apple-style) */
+  --shadow-subtle: 0 1px 3px rgba(11, 21, 40, 0.04), 0 4px 12px rgba(11, 21, 40, 0.02);
+  --shadow-card: 0 2px 6px rgba(11, 21, 40, 0.04), 0 12px 28px rgba(11, 21, 40, 0.04);
+  --shadow-modal: 0 8px 30px rgba(11, 21, 40, 0.12), 0 24px 60px rgba(11, 21, 40, 0.08);
+}

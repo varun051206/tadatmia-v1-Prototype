@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tadatmia — SRM MCET | Premier Engineering & Technology College, Madurai</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="asset/logo.jpeg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <!-- SheetJS: Client-Side Excel Parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- ====================================================================
+         VIEW 1: LANDING PAGE
+         ==================================================================== -->
+    <section id="view-landing" class="app-view active">
+      <div class="landing-view-wrapper">
+        <div class="landing-card">
+          <div class="landing-logo-container">
+            <img src="asset/logo1.png" alt="SRM MCET Logo" class="brand-logo-circular lg">
+          </div>
+          <div class="landing-institution">SRM MCET | Premier Engineering &amp; Technology College, Madurai</div>
+          <h1 class="landing-title">Tadatmia</h1>
+          <p class="landing-desc">
+            Academic marks communication and parent notification distribution portal for faculty and departments.
+          </p>
+          <div class="landing-action">
+            <button type="button" class="btn btn-primary btn-block" id="btn-landing-continue">
+              Continue
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 2: ACADEMIC SELECTION
+         ==================================================================== -->
+    <section id="view-academic" class="app-view">
+      <div class="academic-view-wrapper">
+        <div class="academic-card">
+          <div style="display: flex; justify-content: flex-start; margin-bottom: var(--space-md);">
+            <button type="button" class="btn btn-ghost" id="btn-academic-back" style="padding-left: 0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Back
+            </button>
+          </div>
+
+          <div class="academic-header">
+            <img src="asset/logo1.png" alt="SRM MCET Logo" class="brand-logo-circular sm" style="margin: 0 auto var(--space-sm);">
+            <h2>Academic Selection</h2>
+            <p>Select the department, academic year, and section to access marks distribution.</p>
+          </div>
+
+          <div class="academic-steps-container">
+            <!-- Step 1: Department -->
+            <div class="selection-step">
+              <span class="step-label">Step 1 — Department</span>
+              <div class="step-options">
+                <div class="option-pill active" data-name="AIDS">
+                  <span>AIDS</span>
+                  <span class="active-check"></span>
+                </div>
+                <div class="option-pill locked" data-name="CSE">
+                  <span>CSE</span>
+                  <span style="font-size: 0.75rem; color: var(--c-4-ink-muted);">Batch 2</span>
+                </div>
+                <div class="option-pill locked" data-name="ECE">
+                  <span>ECE</span>
+                  <span style="font-size: 0.75rem; color: var(--c-4-ink-muted);">Batch 2</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Year -->
+            <div class="selection-step">
+              <span class="step-label">Step 2 — Academic Year</span>
+              <div class="step-options">
+                <div class="option-pill active" data-name="2nd Year">
+                  <span>2nd Year</span>
+                  <span class="active-check"></span>
+                </div>
+                <div class="option-pill locked" data-name="3rd Year">
+                  <span>3rd Year</span>
+                  <span style="font-size: 0.75rem; color: var(--c-4-ink-muted);">Batch 2</span>
+                </div>
+                <div class="option-pill locked" data-name="4th Year">
+                  <span>4th Year</span>
+                  <span style="font-size: 0.75rem; color: var(--c-4-ink-muted);">Batch 2</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Section -->
+            <div class="selection-step">
+              <span class="step-label">Step 3 — Section</span>
+              <div class="step-options">
+                <div class="option-pill active" data-name="Section B">
+                  <span>Section B</span>
+                  <span class="active-check"></span>
+                </div>
+                <div class="option-pill locked" data-name="Section A">
+                  <span>Section A</span>
+                  <span style="font-size: 0.75rem; color: var(--c-4-ink-muted);">Batch 2</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="academic-summary">
+            <span class="text-subtle" style="font-size: 0.85rem;">Active Target</span>
+            <span class="badge badge-gold">AIDS • 2nd Year • Section B</span>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-block" id="btn-academic-proceed">
+            Proceed to Staff Login
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 3: STAFF LOGIN
+         ==================================================================== -->
+    <section id="view-login" class="app-view">
+      <div class="login-view-wrapper">
+        <div class="login-card">
+          <div style="display: flex; justify-content: flex-start; margin-bottom: var(--space-md);">
+            <button type="button" class="btn btn-ghost" id="btn-login-back" style="padding-left: 0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Academic Selection
+            </button>
+          </div>
+
+          <div class="login-header">
+            <img src="asset/logo1.png" alt="SRM MCET Logo" class="brand-logo-circular sm" style="margin: 0 auto var(--space-xs);">
+            <div style="margin-bottom: var(--space-sm);">
+              <span class="badge badge-gold">AIDS • 2nd Year • Section B</span>
+            </div>
+            <h2>Staff Login</h2>
+            <p>Enter faculty credentials to access the marks dashboard.</p>
+          </div>
+
+          <form id="form-staff-login" class="login-form">
+            <div class="form-group">
+              <label for="input-username" class="form-label">Faculty Username / Institutional ID</label>
+              <input type="text" id="input-username" class="form-input" placeholder="faculty.aids@srmmcet.edu.in" value="faculty.aids@srmmcet.edu.in" required>
+            </div>
+
+            <div class="form-group">
+              <label for="input-password" class="form-label">Password</label>
+              <input type="password" id="input-password" class="form-input" placeholder="••••••••" value="srmmcet2026" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" style="margin-top: var(--space-sm);">
+              Sign In to Dashboard
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 4: STAFF DASHBOARD
+         ==================================================================== -->
+    <section id="view-dashboard" class="app-view">
+      <!-- Dashboard Sticky Header -->
+      <header class="dashboard-navbar">
+        <div class="container-wide navbar-inner">
+          <div class="navbar-brand">
+            <img src="asset/logo1.png" alt="SRM MCET Logo" class="brand-logo-circular sm">
+            <div class="navbar-titles">
+              <h2>Tadatmia</h2>
+              <span>SRM MCET | Madurai</span>
+            </div>
+          </div>
+
+          <div class="navbar-meta">
+            <span class="badge badge-gold">AIDS • 2nd Year • Section B</span>
+            <span class="badge badge-subtle" id="display-staff-id">Faculty Access</span>
+            <button type="button" class="btn btn-ghost" id="btn-staff-logout" title="Sign Out" style="font-size: 0.85rem;">
+              Sign Out
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Dashboard Content -->
+      <main class="container-wide dashboard-content">
+
+        <!-- 1. Student List Card (Reserved Space & Empty State) -->
+        <section class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              Student List
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="badge badge-subtle" id="badge-student-db">Connecting...</span>
+              <button type="button" class="btn btn-ghost" id="btn-sync-students" style="font-size: 0.8rem; padding: 4px 8px;" title="Sync database from Google Sheet">
+                ↻ Sync
+              </button>
+            </div>
+          </div>
+          <div class="table-responsive" id="student-list-container">
+            <table class="proto-table">
+              <thead>
+                <tr>
+                  <th style="width: 70px;">S.No</th>
+                  <th>Name</th>
+                  <th>Reg No</th>
+                  <th>Mail</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="4" style="padding: 0;">
+                    <div class="empty-state">
+                      <div class="empty-state-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                        </svg>
+                      </div>
+                      <div class="empty-state-title">Student records will appear here</div>
+                      <div class="empty-state-desc">Connect the Section B database to load student records.</div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 2. Upload Marks Card -->
+        <section class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              Upload Marks
+            </div>
+            <span class="text-subtle" style="font-size: 0.85rem;">Excel (.xlsx, .xls)</span>
+          </div>
+          <div class="dash-card-body">
+            <p style="margin-bottom: var(--space-md);">Upload the Excel file containing the marks.</p>
+
+            <!-- Dropzone -->
+            <div id="upload-dropzone" class="upload-dropzone">
+              <input type="file" id="file-input-excel" accept=".xlsx, .xls" style="display: none;">
+              <div class="upload-icon-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+              </div>
+              <div style="font-weight: 600; font-size: 0.95rem; color: var(--c-5-ink-dark); margin-bottom: 4px;">
+                Drag and drop your Excel file here, or browse
+              </div>
+              <div style="font-size: 0.8rem; color: var(--c-4-ink-muted);">
+                Supports Microsoft Excel files (.xlsx, .xls)
+              </div>
+            </div>
+
+            <!-- File Display State (Shown once file is selected) -->
+            <div id="file-selected-display" style="display: none;"></div>
+          </div>
+        </section>
+
+        <!-- 3. Message Subject & Dispatch Section -->
+        <section class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Message Subject
+            </div>
+            <span class="text-subtle" style="font-size: 0.85rem;">Parent Notification Subject</span>
+          </div>
+          <div class="dash-card-body">
+            <div class="form-group" style="margin-bottom: var(--space-lg);">
+              <label for="input-message-subject" class="form-label">Subject</label>
+              <input type="text" id="input-message-subject" class="form-input" placeholder="Enter message subject">
+            </div>
+
+            <!-- Send Message Button & Processing -->
+            <div class="dispatch-actions-bar">
+              <button type="button" id="btn-send-message" class="btn btn-primary" style="padding: 12px 28px; align-self: flex-start;" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                Send Message
+              </button>
+
+              <div id="processing-indicator" class="processing-state">
+                <div class="spinner"></div>
+                <span>Processing...</span>
+              </div>
+
+              <!-- System State Notification (Revealed after Send Message) -->
+              <div id="system-state-banner" class="system-state-banner">
+                <div class="system-state-title">Student database not connected</div>
+                <div class="system-state-text">Connect the Section B database to process and send messages.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Message Status Result Section -->
+        <section class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 11 12 14 22 4"></polyline>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+              Message Status
+            </div>
+
+            <div style="display: flex; align-items: center; gap: var(--space-md);">
+              <button type="button" class="btn btn-secondary" id="btn-open-preview" style="font-size: 0.85rem; padding: 6px 12px;">
+                Preview
+              </button>
+
+              <!-- Download Icon Actions: PDF / Excel / Word -->
+              <div class="download-controls" title="Download current results">
+                <button type="button" class="btn-icon" data-download-format="pdf" title="Download PDF">
+                  <span style="font-size: 0.7rem; font-weight: 700;">PDF</span>
+                </button>
+                <button type="button" class="btn-icon" data-download-format="excel" title="Download Excel">
+                  <span style="font-size: 0.7rem; font-weight: 700;">XLS</span>
+                </button>
+                <button type="button" class="btn-icon" data-download-format="word" title="Download Word">
+                  <span style="font-size: 0.7rem; font-weight: 700;">DOC</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="message-status-table-container">
+            <!-- Populated via ResultManager -->
+          </div>
+        </section>
+
+      </main>
+    </section>
+
+  </div>
+
+  <!-- ====================================================================
+       MESSAGE PREVIEW MODAL
+       ==================================================================== -->
+  <div id="modal-message-preview" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-size: 1.1rem;">Message Preview</h3>
+        <button type="button" class="btn-icon" data-modal-close style="border: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="preview-meta-box">
+          <div class="preview-field">
+            <span class="preview-field-label">Target:</span>
+            <span class="preview-field-val">AIDS • 2nd Year • Section B</span>
+          </div>
+          <div class="preview-field">
+            <span class="preview-field-label">Subject:</span>
+            <span class="preview-field-val" id="preview-subject-text">No subject specified</span>
+          </div>
+        </div>
+
+        <div id="preview-dynamic-body">
+          <!-- Populated by PreviewModal with empty state per instructions -->
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-modal-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Feedback -->
+  <div id="toast-feedback" class="toast-notice"></div>
+
+  <!-- ====================================================================
+       PLAIN TEXT FOOTER
+       ==================================================================== -->
+  <footer class="institutional-footer">
+    <div class="footer-credit">
+      Designed &amp; Developed by Team Tadatmia
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Module -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>
